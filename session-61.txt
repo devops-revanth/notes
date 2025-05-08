@@ -1,0 +1,57 @@
+git
+======
+
+create repo
+clone the repo
+adding the file to staging area
+commit the changes to local repo
+push the changes to central repo
+git pull
+
+git init
+git remote add origin <url>
+
+main --> production
+
+coco cola
+==========
+change the taste --> taste by developers first
+taste by company bod --> feedback
+small crowd --> feedback
+
+branching strategy
+------------------------
+create another branch from main branch
+do the changes
+do the deployment
+do the testing
+do the scanning
+
+if everything is good, then deploy it into QA ENV, UAT, PRE-PROD, PROD
+
+we need to get the changes from another branch into main branch
+
+merging, rebase, PR, squash, reset, revert, cherry pick, etc...
+
+PR --> Pull Request
+
+branch create ---> git checkout -b <bew-branch-name>
+
+Merge
+------
+-> you can do merge to get the changes from feature branch into main branch
+-> merge always creates extra commit called merge commit. it will have 2 parents
+-> merge preserves the history
+-> merge is safe since it prevents the history, you can use merge when multiple people working on the same branch
+
+Rebase
+------
+-> There will be no extra commit created
+-> rebase will not preserve history, it maintains linear history
+-> rebase rewrites the history(change in commit id) as if it is originated from main branch
+-> we can use rebase when a single person works on one branch
+
+Why you get conflicts, how do you resolve?
+------------------------------------------
+
+
