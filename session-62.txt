@@ -1,0 +1,89 @@
+Branching Strategy
+---------------------
+git model --> master and develop. feature, hotfix, release
+feature branching --> master/main, feature
+trunk based develop --> master/main(100% automated test cases)
+
+long lived branches --> main/master, develop
+short lived branches --> feature, hotfix, release
+
+android --> 20, 19, 18, 17, 16, 15
+
+git model
+---------
+this is legacy model, you can use when your application is supporting multiple versions
+
+master and develop
+
+master --> production
+
+develop
+---------
+source: main/master
+
+08-JUN-2025 new release
+------------------------
+
+feature branches --> 3 feature branches
+
+source: develop
+destination: development
+testing is going on in feature branch in DEV environment. once developers are satisfied they push to development branch
+
+release/08-jun
+--------------
+source: development
+destination: master and development
+
+QA, UAT, PRE-PROD deployments will happen and testing goes on... if there are defects they will clear here in release branch. 
+
+PROD deployment happens from release branch, if success changes will be merged to master and development
+
+hotfix
+--------------
+source: main/master
+destination: main and development
+
+they create hotfix branch do the deployment in DEV environment, if success they go to PROD from hotfix branch. if deployment is success then they merge the changes in master and development both
+
+featuring branching
+-------------------------
+main branch and feature branch
+feature branch --> DEV deployment
+PR --> main --> QA, UAT, PRE-PROD, PERF, PROD
+
+we tag the commits when there is successful deployment
+feature branch --> development related functional test cases.. 100%
+
+commit id change --> code is changed
+feature --> DEV success --> Main --> Extra commit
+
+git reset, revert, cherry pick
+
+
+restore is used to bring back the changes from staging area to workspace or delete the changes in workspace
+
+reset --> undo the changes
+
+workspace --> staging area --> local repo commits --> remote repo
+
+soft --> staging area
+mixed --> workspace
+hard --> delete the fault changes
+
+reset is useful only in local repos, we should perform these in central repos
+soft, mixed and hard changes
+history will be rewritten
+
+revert
+-----------
+when changes are moved to remote repo, now you want undo the changes you can go for remote repo
+we can't rewrite the history, we can correct the mistakes using revert
+it wil create extra commit
+
+cherry-pick
+-----------
+if you are working one branch, you want to pick something from other branch particular commit then you can use cherry-pick
+
+git cherry-pick <commit-id>
+you may get conflicts, you need to resolve and continue
