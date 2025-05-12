@@ -1,0 +1,52 @@
+git squash
+git stash
+
+squash --> 30 commits
+if you rebase these commits, 30 commits will be pushed to main branch
+
+feature-1 --> code-1
+feature-2 --> code-2
+
+feature-2 - feature-1 = code-2 - code-1
+
+using squash we can compress all the commits into single commit. recommended only to use when a single person is working on particular branch. usually we use before rebase. not recommended to do in main/long lived branches...
+
+squash == interactive rebase
+
+pick 408edf5
+squash 0810a4e
+squash fab9d2f
+squash 2bb906f 
+
+git stash
+
+when we are working on a particular feature, if we have to move to another branch git will not allow. So we can stash the changes by using git stash command, go to another branch complete the work there and again come to our feature branch and retrieve our changes using git stash pop command
+
+k8 upgrade, k8 architecture
+=============================
+daws82s.online --> ALB --> TG --> Pod IP
+
+You can't do any changes or deployments to the applications, but existing applications will run while k8 upgrade is going on...
+
+blue --> running version
+green provision, basic testing
+change service to green
+
+blue nodes are running
+will create same number of green nodes
+cordon green nodes, scheduling disabled
+eks control plane upgrade to 1.32
+green nodes also wil be upgraded to 1.32 and uncordon
+cordon blue nodes, scheduling disabled
+drain blue nodes, so pods will go to green nodes
+now we can delete blue group
+
+08:30-09:30 PM upgrade started
+
+We should announce this upgrade atleast 1 month before as planned activity, so that application team can plan their release. we will ask app team to be stand by to check apps health after upgrade
+
+circuit breaker
+mTLS
+rate limiting
+
+

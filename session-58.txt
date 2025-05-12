@@ -1,0 +1,15 @@
+ReplicaSet
+Deployment
+StatefulSet
+DaemonSet --> makes sure pod replica runs on every node. monitoring purpose and logs collection, metrics collection, etc.
+
+emptyDir --> temp storage for pod
+
+hostPath --> filesystem path in the underlying worker node. it is not secure pods should not access host filesystem directly. but deamonset is only the exception for admins to collect logs and metrics...
+
+pod-1 is in node-1
+pod-2 is in node-2
+
+pod-1 should accept traffic from pod-2
+
+10.0.0.0/16
