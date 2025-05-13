@@ -1,0 +1,66 @@
+K8 Architecture
+===================
+Master/Control plane and worker node
+
+Api server: it is the first component that receives request from client. it checks authentication and authorization intially and then forwards the request to appropriate components
+
+Scheduler: scheduler takes the decision about where to schedule the work loads. it checks user preferences like taints, toleration, node affinity, pod affinity, etc. if no preference scheduler runs the pod on any random available worker node
+
+Controll manager: node control, replication controll, sa controller.. replication control is responsible to make sure desired number of pod replicas run all the time..node control is responsible to make sure all the nodes are connected and ready..
+
+etcd: this is database to our cluster. cluster configs, resource configs are stored here..
+
+cloud-controller-manager: responsible to integrate eks cluster with other cloud services like IAM, LB, Ingress, etc.
+
+worker node components:
+========================
+
+kubelet: responsible to connect the worker node to control plane. it gets the pod spec from master node and make sure pod runs on the node
+
+kube-proxy: it is like DNS to the pods. It provides the network rules on how to forward request through workloads like service to pods. pod to pod communication
+
+container runtime: is responsible to run the image into container.
+
+add-ons: vpc-cni, kube-dns, metrics-server, ebs, efs, etc.
+
+Jenkins
+===================
+continous integration --> integrate the code continously
+1. build errors
+2. deployment errors
+
+compile, dependencies install, pack the code into artifact, build the image, push image to central registry
+
+shift-left process --> building, scanning, testing the application in DEV environment 
+
+clone the code, dependencies install, scan the code, unit tests, pack the code
+
+process of integrating the continously when developer push the code to remote repository. It involves clone the code, compile the code, install dependencies, do multiple types of scans, run unit test cases and create the image/artifact, store in central registry... we follow shift left process to identify or make sure quality of code in the early stages of DEV environment...
+we use jenkins to do these CI..
+
+Jenkins is a plain web server, jenkins power lies in pluings, if you want jenkins to do some taks you need either install plugin or command inside jenkins server/node...
+
+everything in jenkins is called as job
+
+pre-build, build and post-build
+
+freestyle vs pipeline
+----------------------
+can't restore if something is misconfigured
+can't track who did the changes
+can't version control
+can't review the code
+
+pipeline is a code
+----------------------
+version control
+easy to review
+easy to restore
+easy to track
+easy to extend to multiple projects
+
+
+
+github.joindevops.com --> github is installed in joindevops servers
+
+
