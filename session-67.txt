@@ -1,0 +1,17 @@
+1. build the image
+2. how to run the image --> manifest
+
+stream editor --> sed
+
+CUD
+
+sed -e 'syntax' file
+
+insert line
+
+sed -e '1 i Hello World' users
+
+sed -i 's/IMAGE_VERSION/$version/g' values-dev.yaml
+
+load balancer --> listener --> rule --> target group --> ip
+load balancer --> listener --> rule --> target group --> target group binding adds the pod ip to target group

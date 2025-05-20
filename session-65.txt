@@ -1,0 +1,33 @@
+Master and Agent/Node architecture
+---------------------------------
+java, nodejs python, reactjs
+
+1acre
+100 acres --> he should have employees/resources
+
+only master can't handle multiple builds at a time
+every project needs different runtime environments and different versions. master can't handle all these things, we will have multiple agents specialised for different environments
+
+host IP, username and password
+
+declarative vs scripted
+-------------------------
+
+scripted --> it is groovy based pipeline from jenkins beginning
+declarative --> jenkins-2.0 launched declarative pipeline using groovy
+
+scripted --> pipeline is compiled at the time of runtime
+declarative --> entire pipeline is compiled first and then run
+
+declarative pipeline --> standard/easy syntax
+scripted --> dynamic groovy syntax, little tough but we can control pipeline with lot of flexibility
+
+we use hybrid for more advantages
+
+webhooks
+-----------
+when developer push the code, it should automatically trigger CI pipeline
+
+github --> event driven --> jenkins
+
+

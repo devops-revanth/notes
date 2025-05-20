@@ -1,0 +1,62 @@
+Infra create
+	terraform init, plan and apply
+
+DevOps team develops the pipeline... DevOps will do the settings in Git. DevOps team discuss branching straetgy with Development team...
+
+CI job triggers CD job
+
+Shift Left
+===========
+Instead of testing and scanning the application in higher environments we can shift all the possible stages of scanning and testing into DEV environment so that issues can be filtered early...
+
+Scanning
+===========
+Source code analysis --> SonarQube
+SAST --> Static application security testing --> SonarQube
+DAST --> Dynamic application security testing --> Veracode
+open source library scan --> scanning dependencies
+image scan --> docker images scan
+
+1. Install SonarQube scanner plugin, this enables sonarqube options in tools and system configuration
+2. Configure sonarqube scanner in tools section
+3. Configure sonarqube URL in system configuration including authentication
+
+
+Quality Gates
+=============
+When sonarscan is over we need to take decission based on quality gates.  
+
+Code Coverage
+
+20 functions --> unit test cases for 20 functions --> 100% code coverage
+
+commit1, commit2
+
+new code = commit2 - commit1
+issues --> 0
+vulnerabilities --> 0
+code snells --> 0
+maintability rating --> A
+security rating --> A
+code coverage --> min 80%
+
+
+How did you integrate sonarqube in your project?
+
+We installed SonarQube Server. We added sonarscanner plugin in our jenkins. we configured sonarscanner tool and configured sonarqube server in jenkins pipeline...
+
+We integrate sonarqube jenkins code into our pipeline, scanner analyse the code and push to server. we configured qualitygates in sonarqube server. if quality gates fails our build also will be failed.
+
+What is qualitygates?
+
+To make the overall code and new code clean, we configured parameters in sonarqube server that should pass. Our parameters are
+
+issues --> 0
+vulnerabilities --> 0
+code snells --> 0
+maintability rating --> A
+security rating --> A
+code coverage --> min 80%
+
+if the code have't passed these parameters it means code quality is failed. We integrated jenkins and sonarqube through webhook our pipeline waits for results, if qualitygates is failed we will fail the pipeline..
+

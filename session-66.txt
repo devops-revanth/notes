@@ -1,0 +1,38 @@
+aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 315069654700.dkr.ecr.us-east-1.amazonaws.com
+
+
+docker build -t 315069654700.dkr.ecr.us-east-1.amazonaws.com/expense/backend:appVersion .
+
+docker push 315069654700.dkr.ecr.us-east-1.amazonaws.com/expense/backend:appVersion
+
+scan
+unit test cases
+
+unit test, functional testing, integration testing
+
+functions --> unit test cases
+
+login(username, password){
+	connectToDB()
+	fetchUser()
+}
+
+connectToDB(){
+
+}
+
+fetchUser(){
+
+}
+
+proper username and password --> success test cases --> should be logged in
+special char in user --> failure test case --> this should fail
+
+infra
+application deployment on top of infra
+
+new version .jar file
+
+/var/lib/jenkins
+/var/lib/jenkins
+
